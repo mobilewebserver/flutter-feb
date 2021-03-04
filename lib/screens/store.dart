@@ -10,9 +10,10 @@ class StoreScreen extends StatelessWidget {
             RaisedButton(
               onPressed: () {
                 print('User is interacting...');
-                // Navigator.of(context).pushNamed('/');
-                Navigator.of(context).pop(); // Store Screen will be Removed
-                Navigator.of(context).pop(); // Products Screen will be Removed
+
+                Navigator.of(context).pushNamed('/');
+                // Navigator.of(context).pop(); // Store Screen will be Removed
+                // // Navigator.of(context).pop(); // Products Screen will be Removed
               },
               child: Text('Go To Home'),
             )

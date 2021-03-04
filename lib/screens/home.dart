@@ -4,6 +4,31 @@ import 'package:app_big/widgets/Link.dart';
 class HomeScreen extends StatelessWidget {
   build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              child: Container(
+                height: 200,
+              ),
+            ),
+            ListTile(
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed('/category');
+              },
+              title: Text('Category Screen'),
+            ),
+            // Container(
+            //   child: RaisedButton(
+            //     onPressed: () {},
+            //     color: Colors.green,
+            //     child: Text('Logout'),
+            //   ),
+            // )
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Text('E-Store 2021'),
       ),
@@ -14,22 +39,22 @@ class HomeScreen extends StatelessWidget {
               "Welcome",
               style: TextStyle(fontSize: 40),
             ),
-            GoTo(label: "Electronics", route: '/products', state: {
-              'title': 'Welcome to Electronic',
-              'categoryId': '123',
-            }),
-            GoTo(label: "Plants", route: '/products', state: {
-              'title': 'Welcome to Plants',
-              'categoryId': '9090',
-            }),
-            GoTo(label: "Books", route: '/products', state: {
-              'title': 'Welcome to Books',
-              'categoryId': '9091',
-            }),
-            GoTo(label: "Clothes", route: '/products', state: {
-              'title': 'Welcome to Clothes',
-              'categoryId': '9092',
-            }),
+            // GoTo(label: "Electronics", route: '/products', state: {
+            //   'title': 'Welcome to Electronic',
+            //   'categoryId': '123',
+            // }),
+            // GoTo(label: "Plants", route: '/products', state: {
+            //   'title': 'Welcome to Plants',
+            //   'categoryId': '9090',
+            // }),
+            // GoTo(label: "Books", route: '/products', state: {
+            //   'title': 'Welcome to Books',
+            //   'categoryId': '9091',
+            // }),
+            // GoTo(label: "Clothes", route: '/products', state: {
+            //   'title': 'Welcome to Clothes',
+            //   'categoryId': '9092',
+            // }),
             GoTo(
               label: "Store",
               route: '/store',

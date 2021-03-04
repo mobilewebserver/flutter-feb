@@ -1,3 +1,4 @@
+import 'package:app_big/screens/Category/category.dart';
 import 'package:app_big/screens/store.dart';
 import 'package:flutter/material.dart';
 import 'package:app_big/screens/home.dart';
@@ -23,6 +24,9 @@ class EStoreApp extends StatelessWidget {
         },
         '/store': (ctx) {
           return StoreScreen();
+        },
+        '/category': (ctx) {
+          return CategoryScreen();
         },
       },
     );
