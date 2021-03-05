@@ -11,7 +11,6 @@ class CategoryScreen extends StatefulWidget {
 
 class CategoryScreenState extends State {
   int selectedIndex = 0;
-  var categories = [];
   final screens = [Create(), List()];
   build(BuildContext context) {
     return Scaffold(
@@ -31,12 +30,6 @@ class CategoryScreenState extends State {
             BottomNavigationBarItem(icon: Icon(Icons.list), label: "List")
           ],
         ),
-        body: this.selectedIndex == 0
-            ? Create(onCreate: (list) {
-                setState(() {
-                  this.categories = list;
-                });
-              })
-            : ListWidget(items: this.categories));
+        body: this.selectedIndex == 0 ? Create() : ListWidget());
   }
 }

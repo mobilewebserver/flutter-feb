@@ -1,19 +1,26 @@
+import 'package:app_big/state/Categories.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ListWidget extends StatelessWidget {
-  var items = [];
-  ListWidget({this.items});
+  ListWidget();
   @override
   build(BuildContext context) {
-    return Expanded(
-      child: ListView(
-        children: [
-          for (var i = 0; i < this.items.length; i++)
-            ListTile(
-              title: Text('Hello'),
-            )
-        ],
-      ),
+    Categories categories = Provider.of<Categories>(context);
+    List<Category> items = categories.categories;
+    return Column(
+      children: [
+        Expanded(
+          child: ListView(
+            children: [
+              for (var i = 0; i < items.length; i++)
+                ListTile(
+                  title: Text(items[i].title),
+                )
+            ],
+          ),
+        )
+      ],
     );
   }
 }

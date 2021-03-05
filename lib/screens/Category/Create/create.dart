@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 // import './../../../widgets/TextInput.dart';
 
 import 'package:app_big/widgets/TextInput.dart';
+import 'package:app_big/state/Categories.dart';
+import 'package:provider/provider.dart';
 
 class Create extends StatefulWidget {
   Function onCreate;
-  Create({this.onCreate});
+  Create();
   createState() {
-    return CreateState(onCreate: this.onCreate);
+    return CreateState();
   }
 }
 
@@ -17,8 +19,9 @@ class CreateState extends State {
 
   String categoryDescription;
   List categories = [];
-  CreateState({this.onCreate});
+  CreateState();
   build(BuildContext context) {
+    Categories categories = Provider.of<Categories>(context);
     return Container(
         child: Column(
       children: [
@@ -43,19 +46,11 @@ class CreateState extends State {
         ),
         RaisedButton(
           onPressed: () {
-            Map category = {
-              'title': this.categoryTitle,
-              'description': this.categoryDescription,
-            };
-            // this.categories.add(category);
-            var newCategories = [...this.categories, category];
-            this.onCreate(newCategories);
-            // setState(() {
-            //   this.categories = newCategories;
-            //   this.categoryTitle = '';
-            //   this.categoryDescription = '';
-            // });
-            // print(this.categories);
+            Category category = Category(
+                title: this.categoryTitle,
+                description: this.categoryDescription);
+
+            categories.add(category);
           },
           child: Text('Create'),
         ),
